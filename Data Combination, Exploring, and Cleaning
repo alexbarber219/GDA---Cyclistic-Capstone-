@@ -1,0 +1,95 @@
+-- Merging all 12 Tables into one big table --
+
+CREATE TABLE "combined_bike" AS 
+	SELECT * FROM "202504"
+	UNION ALL
+	SELECT * FROM "202503"
+	UNION ALL
+	SELECT * FROM "202502"
+	UNION ALL
+	SELECT * FROM "202501"
+	UNION ALL
+	SELECT * FROM "202412"
+	UNION ALL
+	SELECT * FROM "202411"
+	UNION ALL
+	SELECT * FROM "202410"
+	UNION ALL
+	SELECT * FROM "202409"
+	UNION ALL
+	SELECT * FROM "202408"
+	UNION ALL
+	SELECT * FROM "202407"
+	UNION ALL
+	SELECT * FROM "202406"
+	UNION ALL
+	SELECT * FROM "202405";
+
+-- Checking total number of rows (5,735,884) --
+
+SELECT COUNT(*)
+FROM "combined_bike";
+
+-- Checking for NULL values (6,399) --
+
+SELECT
+	COUNT(CASE WHEN "ridable_type" IS NULL THEN 1 END) AS "null_ridable_type",
+	COUNT(CASE WHEN "started_at" IS NULL THEN 1 END) AS "null_started_at",
+	COUNT(CASE WHEN "ended_at" IS NULL THEN 1 END) AS "null_ended_at",
+	COUNT(CASE WHEN "member_casual" IS NULL THEN 1 END) AS "null_member_casual",
+	COUNT(CASE WHEN "ride_length" IS NULL THEN 1 END) AS "null_ride_length",
+	COUNT(CASE WHEN "day_of_week" IS NULL THEN 1 END) AS "null_day_of_week",
+	COUNT(CASE WHEN "month" IS NULL THEN 1 END) AS "null_month"
+FROM "combined_bike";
+
+-- Using Ride ID to check for duplicates (220) --
+
+SELECT "ride_id", COUNT(*)
+FROM "combined_bike"
+GROUP BY "ride_id"
+HAVING COUNT(*) > 1;
+
+--	Delete all duplicates --
+
+DELETE FROM combined_bike_1
+WHERE ride_id IN (
+  SELECT ride_id
+  FROM combined_bike_1
+  GROUP BY ride_id
+  HAVING COUNT(*) > 1
+);
+
+-- Check ride types --
+
+SELECT DISTINCT "rideable_type", COUNT("rideable_type") AS "num_of_trips"
+FROM "combined_bike"
+GROUP BY "rideable_type";
+
+classic_bike - 2,533,829  electric_bike - 3,057,718  electric_scooter - 144,437
+
+-- Check member types --
+
+SELECT DISTINCT "member_casual", COUNT("member_casual") AS "mship_type"
+FROM "combined_bike"
+GROUP BY "member_casual";
+
+-- Check rides shorter than 1 minute and longer than a day --
+
+SELECT COUNT(*) AS "too_short_too_long"
+FROM "combined_bike"
+WHERE "ride_length" < 1 OR "ride_length" > 1440;
+
+-- Create cleaned table -- 
+
+CREATE TABLE combined_bike_cleaned AS
+SELECT 
+    "ride_id",
+    "rideable_type",      
+    "member_casual",     
+    "ride_length",   
+    "day_of_week",
+	  "month"
+FROM "combined_bike"
+WHERE "ride_length" >= 1 AND "ride_length" <= 1440;
+
+
