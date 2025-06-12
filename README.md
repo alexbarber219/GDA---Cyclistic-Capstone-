@@ -79,3 +79,29 @@ For each of the following visualisations, data is split by member and casual, wi
 ![month](https://github.com/user-attachments/assets/2eebde78-af0f-416f-85f3-36fcd7094e6c)
 
 ![start_time](https://github.com/user-attachments/assets/f3849e11-009e-4dc4-96f5-635f1d1f94b8)
+
+__Day of Week:__ It appears the casual riders ride the most on the weekends, whereas the members ride more during the weekdays
+
+__Month:__ The same pattern of total number of rides follows the same trend for both casuals and members, with more rides being completed over the warmer months of the year, peaking in September. There are always more members than casuals riding accross the year.
+
+__Start Time:__ The data would suggest that members are using the bikes primarily for commuting, with clear peaks at both 0800 and 1700. Casuals on the otherhand use the bikes most during the daylight hours.
+
+To finish the analysis with visuals, the average ride times were displayed against the same metrics (Day of Week, Month, Start Time). The same colour system was used with casual riders always blue and member riders always orange.
+
+![avg_day_of_week](https://github.com/user-attachments/assets/662c3a8b-7c80-456f-a831-7d6b9be50ad6)
+
+![avg_month](https://github.com/user-attachments/assets/bc654809-7e85-4c23-b5f1-3ca820236d27)
+
+![avg_start_time](https://github.com/user-attachments/assets/004ab973-41fd-403d-8561-91ce369dc8c3)
+
+Accross all metrics, casual riders are riding for longer accross the whole year, on average. Interestingly, avearage member ride times show very little change in duration again, accross the year. On the other hand, while casuals are riding for longer, they appear to use the bikes the most during the daytime hours (a clear peak can be seen at 10am).
+
+In conclusion, it appears that members use the bikes for commuting, where as the casuals are using the bikes for longer, maybe for fun/exercise primarily on the weekends. Further, warmer months of the year are more popular for bike use no matter the rider type.
+
+## Act
+
+Clear differences have been shown in how both casual and member riders use the Cyclistic bikes, my top 3 suggestions for marketing efforts are suggested for future casual-to-member conversion;
+
+1. Advertise during the summer months to casuals, at popular recreational cycling routes locations
+2. Create member packages that include discounts for 20 mins plus/longer rides, to incentivize those casuals who ride longer to switch to members, as they already ride for longer
+3. Create member packages that provide discounts on weekend riding, as more casuals are already riding more on the weekend
