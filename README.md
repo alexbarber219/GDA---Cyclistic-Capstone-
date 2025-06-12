@@ -100,7 +100,7 @@ In conclusion, it appears that members use the bikes for commuting, where as the
 
 ## Act
 
-Clear differences have been shown in how both casual and member riders use the Cyclistic bikes, my top 3 suggestions for marketing efforts are suggested for future casual-to-member conversion;
+Clear differences have been shown in how both casual and member riders use the Cyclistic bikes, my top 3 suggestions for marketing efforts for future casual-to-member conversion are as follows;
 
 1. Advertise during the summer months to casuals, at popular recreational cycling routes locations
 2. Create member packages that include discounts for 20 mins plus/longer rides, to incentivize those casuals who ride longer to switch to members, as they already ride for longer
